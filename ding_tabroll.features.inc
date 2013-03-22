@@ -169,6 +169,209 @@ function ding_tabroll_rules_defaults() {
         ),
         '#version' => 6003,
       ),
+
+      'rules_ding_tabroll_rolltab_deleted' => array(
+        '#type' => 'rule',
+        '#set' => 'event_node_delete',
+        '#label' => 'Ding! Tabroll Rolltab deleted',
+        '#active' => 1,
+        '#weight' => '0',
+        '#categories' => array(
+          0 => 'ding_tabroll',
+        ),
+        '#status' => 'custom',
+        '#conditions' => array(
+          0 => array(
+            '#type' => 'condition',
+            '#settings' => array(
+              'type' => array(
+                'rolltab' => 'rolltab',
+              ),
+              '#argument map' => array(
+                'node' => 'node',
+              ),
+            ),
+            '#name' => 'rules_condition_content_is_type',
+            '#info' => array(
+              'label' => 'Deleted content is Rullefane',
+              'label callback' => false,
+              'arguments' => array(
+                'node' => array(
+                  'type' => 'node',
+                  'label' => 'Indhold',
+                ),
+              ),
+              'module' => 'Node',
+            ),
+            '#weight' => 0,
+          ),
+        ),
+        '#actions' => array(
+          0 => array(
+            '#weight' => 0,
+            '#info' => array(
+              'label' => 'Clear the cache of tabroll view.',
+              'label callback' => false,
+              'arguments' => array(
+                'view' => array(
+                  'type' => 'string',
+                  'label' => 'Vis',
+                  'description' => 'Specify the view you want to clear.',
+                ),
+              ),
+              'module' => 'Cache Actions',
+            ),
+            '#name' => 'cache_actions_action_clear_views_cache',
+            '#settings' => array(
+              'view' => 'tabroll',
+              '#eval input' => array(
+                'token_rules_input_evaluator' => array(
+                  'view' => array(
+                    0 => ':global',
+                  ),
+                ),
+              ),
+            ),
+            '#type' => 'action',
+          ),
+        ),
+        '#version' => 6003,
+      ),
+      'rules_ding_tabroll_rolltab_saved' => array(
+        '#type' => 'rule',
+        '#set' => 'event_node_insert',
+        '#label' => 'Ding! Tabroll Rolltab saved',
+        '#active' => 1,
+        '#weight' => '0',
+        '#categories' => array(
+          0 => 'ding_tabroll',
+        ),
+        '#status' => 'custom',
+        '#conditions' => array(
+          0 => array(
+            '#type' => 'condition',
+            '#settings' => array(
+              'type' => array(
+                'rolltab' => 'rolltab',
+              ),
+              '#argument map' => array(
+                'node' => 'node',
+              ),
+            ),
+            '#name' => 'rules_condition_content_is_type',
+            '#info' => array(
+              'label' => 'Saved content is Rullefane',
+              'label callback' => false,
+              'arguments' => array(
+                'node' => array(
+                  'type' => 'node',
+                  'label' => 'Indhold',
+                ),
+              ),
+              'module' => 'Node',
+            ),
+            '#weight' => 0,
+          ),
+        ),
+        '#actions' => array(
+          0 => array(
+            '#weight' => 0,
+            '#info' =>array(
+              'label' => 'Clear the cache of tabroll view.',
+              'label callback' => false,
+              'arguments' => array(
+                'view' => array(
+                  'type' => 'string',
+                  'label' => 'Vis',
+                  'description' => 'Specify the view you want to clear.',
+                ),
+              ),
+              'module' => 'Cache Actions',
+            ),
+            '#name' => 'cache_actions_action_clear_views_cache',
+            '#settings' => array(
+              'view' => 'tabroll',
+              '#eval input' => array(
+                'token_rules_input_evaluator' => array(
+                  'view' => array(
+                    0 => ':global',
+                  ),
+                ),
+              ),
+            ),
+            '#type' => 'action',
+          ),
+        ),
+        '#version' => 6003,
+      ),
+      'rules_ding_tabroll_rolltab_updated' => array(
+        '#type' => 'rule',
+        '#set' => 'event_node_update',
+        '#label' => 'Ding! Tabroll Rolltab updated',
+        '#active' => 1,
+        '#weight' => '0',
+        '#categories' => array(
+          0 => 'ding_tabroll',
+        ),
+        '#status' => 'custom',
+        '#conditions' =>array(
+          0 => array(
+            '#weight' => 0,
+            '#info' => array(
+              'label' => 'Updated content is Rullefane',
+              'label callback' => false,
+              'arguments' => array(
+                'node' => array(
+                  'type' => 'node',
+                  'label' => 'Indhold',
+                ),
+              ),
+              'module' => 'Node',
+            ),
+            '#name' => 'rules_condition_content_is_type',
+            '#settings' => array(
+              'type' => array(
+                'rolltab' => 'rolltab',
+              ),
+              '#argument map' => array(
+                'node' => 'node',
+              ),
+            ),
+            '#type' => 'condition',
+          ),
+        ),
+        '#actions' => array(
+          0 => array(
+            '#weight' => 0,
+            '#type' => 'action',
+            '#settings' => array(
+              'view' => 'tabroll',
+              '#eval input' => array(
+                'token_rules_input_evaluator' => array(
+                  'view' => array(
+                    0 => ':global',
+                  ),
+                ),
+              ),
+            ),
+            '#name' => 'cache_actions_action_clear_views_cache',
+            '#info' => array(
+              'label' => 'Clear the cache of tabroll view.',
+              'label callback' => false,
+              'arguments' => array(
+                'view' => array(
+                  'type' => 'string',
+                  'label' => 'Vis',
+                  'description' => 'Specify the view you want to clear.',
+                ),
+              ),
+              'module' => 'Cache Actions',
+            ),
+          ),
+        ),
+        '#version' => 6003,
+      ),
+
     ),
   );
 }
