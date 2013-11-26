@@ -19,7 +19,6 @@ function ding_tabroll_ctools_plugin_api() {
  */
 function ding_tabroll_views_api() {
   return array("api" => "3.0");
-  }
 }
 
 /**
