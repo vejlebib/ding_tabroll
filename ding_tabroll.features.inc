@@ -18,9 +18,7 @@ function ding_tabroll_ctools_plugin_api() {
  * Implements hook_views_api().
  */
 function ding_tabroll_views_api() {
-  list($module, $api) = func_get_args();
-  if ($module == "views" && $api == "views_default") {
-    return array("version" => "3.0");
+  return array("api" => "3.0");
   }
 }
 
